@@ -5,5 +5,5 @@ import { ITransactionRepository } from "../../modules/conta/repositories/ITransa
 
 container.registerSingleton<ITransactionRepository>(
     "TransactionRepository",
-    TransactionRepository
+    TransactionRepository,
 )

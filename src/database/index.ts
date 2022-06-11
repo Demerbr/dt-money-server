@@ -1,5 +1,6 @@
 import "reflect-metadata";
 import { DataSource } from "typeorm";
+import { Transaction } from "../modules/conta/entities/Transaction";
 
 //yarn typeorm migration:run -- -d  ./src/database
 
@@ -10,15 +11,16 @@ import { DataSource } from "typeorm";
 
 export const AppDataSource = new DataSource({
     type: "postgres",
-    host: "localhost",
+    host: "database",
     port: 5432,
     username: "dtserver",
     password: "1234",
     database: "dtmoney",
-    entities: [],
+    entities: [Transaction],
     migrations: ["src/database/migrations/*.ts"],
 })
 
-AppDataSource.initialize().then(async () => {
-    console.log("Initializing the database...")
-}).catch((err)=> console.log(err))
+
+    AppDataSource.initialize().then(async () => {
+        console.log("Initializing the database...")
+    }).catch((err)=> console.log(err))
