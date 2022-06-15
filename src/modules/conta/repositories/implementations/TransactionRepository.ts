@@ -43,6 +43,13 @@ class TransactionRepository implements ITransactionRepository{
         return transactions
     }
 
+    async deleteTransaction(id: string): Promise<void> {
+        
+         await this.repository.delete(id)
+
+       
+    }
+
     
 }
 

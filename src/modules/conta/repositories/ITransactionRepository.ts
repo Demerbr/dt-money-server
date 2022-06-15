@@ -14,6 +14,8 @@ interface ITransactionRepository{
     create(data: ITransactionCreateDTO): Promise<Transaction>
 
     listAllTransactions(): Promise<Transaction[]>
+
+    deleteTransaction(id: string): Promise<void>
 }
 
 export { ITransactionRepository, ITransactionCreateDTO}
